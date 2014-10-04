@@ -2,6 +2,7 @@
 
 use View;
 use Config;
+use Redirect;
 use Controller;
 
 abstract class BaseController extends Controller {

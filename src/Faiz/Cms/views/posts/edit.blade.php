@@ -1,4 +1,4 @@
-@extends('cms::admin.layouts.default')
+@extends('cms::layouts.default')
 
 {{-- Style --}}
 @section('style')

@@ -42,7 +42,7 @@ Te his dolorem adversarium? Pri eu rebum viris, tation molestie id pri. Mel ei s
                 'post_date' => new DateTime,
             ),
             array(
-                'post_author'    => 3,
+                'post_author'    => 2,
                 'post_title'      => 'In iisque similique reprimique eum',
                 'post_slug'       => 'in-iisque-similique-reprimique-eum',
                 'post_content'    => $this->content,

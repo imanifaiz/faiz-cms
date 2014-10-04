@@ -2,6 +2,8 @@
 
 use App;
 use View;
+use Redirect;
+use Faiz\Cms\Controllers\BaseController;
 use Illuminate\Support\MessageBag;
 use Faiz\Cms\Core\Exceptions\EntityNotFoundException;
 
@@ -146,7 +148,9 @@ abstract class ObjectBaseController extends BaseController {
 			return App::abort(404, 'Page not found');
 		}
 
-		$model = $this->model->getById($id)->delete();
+		$model = $this->model->getById($id);
+
+		$model->delete();
 
 		$message = 'The item was sucessfully deleted.';
 

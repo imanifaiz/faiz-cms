@@ -1,6 +1,8 @@
 <?php namespace Faiz\Cms\Controllers;
+
 use Faiz\Cms\Posts\PostsInterface;
 use Illuminate\Support\MessageBag;
+use Faiz\Cms\Controllers\ObjectBaseController;
 
 class PostsController extends ObjectBaseController {
 	/**

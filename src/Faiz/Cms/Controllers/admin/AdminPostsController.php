@@ -10,7 +10,7 @@ class AdminPostsController extends ObjectBaseController {
      * The place to find the views / URL keys for this controller
      * @var string
      */
-    protected $view_key = 'admin.posts';
+    protected $view_key = 'posts';
 
     /**
      * Initializer
