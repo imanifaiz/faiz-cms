@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="bootstrap/css/simple-sidebar.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="packages/tinymce/dashicons.css">
+	<link rel="stylesheet" href="packages/tinymce/editor.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<header class="navbar navbar-inverse" role="navigation">
+		  <div class="">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="http://laravel-1.dev">Administration</a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		      	<li class="active"><a href="http://laravel-1.dev">Home</a>
+		      </li></ul>
+
+		      <ul class="nav navbar-nav pull-right">
+				
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</header>
+
+    <div id="wrapper">
+    	
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <!-- <li class="sidebar-brand">
+                    <a href="#">
+                        Start Bootstrap
+                    </a>
+                </li> -->
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">Posts</a>
+                </li>
+                <li>
+                    <a href="#">Media</a>
+                </li>
+                <li>
+                    <a href="#">Pages</a>
+                </li>
+                <li>
+                    <a href="#">Comments</a>
+                </li>
+                <li>
+                    <a href="#">Users</a>
+                </li>
+                <li>
+                    <a href="#">Settings</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-8">
+                    	<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                        <textarea name="CONTENT" id="content" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->    
+
+    <script src="packages/tinymce/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="packages/tinymce/tinymce.min.js"></script>
+<script>tinymce.init({
+        selector: "#content",
+        menubar: false,
+        plugins: ["code", "preview", "hr", "fullscreen", "charmap", "table", "wordcount", "link", "paste", "textcolor"],
+        toolbar: ["bold italic strikethrough bullist numlist table blockquote hr alignleft aligncenter alignright alignjustify link unlink | fullscreen", 
+        	"formatselect underline forecolor backcolor paste removeformat charmap undo redo outdent indent | code preview"]
+           
+	});</script>
+
+	<script src="packages/tinymce/plugins/code/plugin.min.js"></script>
+	<script src="packages/tinymce/plugins/preview/plugin.min.js"></script>
+	<script src="packages/tinymce/plugins/hr/plugin.min.js"></script>
+	<script src="packages/tinymce/plugins/fullscreen/plugin.min.js"></script>
+	<script src="packages/tinymce/plugins/table/plugin.min.js"></script>
+	<script src="packages/tinymce/plugins/wordcount/plugin.min.js"></script>
+	<script src="packages/tinymce/plugins/link/plugin.min.js"></script>
+	<script src="packages/tinymce/plugins/textcolor/plugin.min.js"></script>
+	<script src="packages/tinymce/plugins/paste/plugin.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    jQuery("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        jQuery("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>
+
