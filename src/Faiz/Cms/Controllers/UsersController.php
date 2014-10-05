@@ -7,16 +7,21 @@ use Input;
 use Confide;
 use Config;
 use Redirect;
-use Controller;
+use Faiz\Cms\Controllers\BaseController;
 
 /**
  * UsersController Class
  *
  * Implements actions regarding user management
  */
-class UsersController extends Controller
+class UsersController extends BaseController
 {
-
+    // protected $whitelist = array(
+    //     'login',
+    //     'doLogin',
+    //     'logout'
+    // );
+    
     /**
      * Displays the form for account creation
      *
@@ -74,7 +79,7 @@ class UsersController extends Controller
             return Redirect::to('/');
         } else {
             // return View::make(Config::get('confide::login_form'));
-            return View::make('cms::site.user.login');
+            return View::make('cms::users.login');
         }
     }
 

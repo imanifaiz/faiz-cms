@@ -13,6 +13,13 @@ class Page{
     public function compose($view)
     {
         // $settings = App::make('Davzie\LaravelBootstrap\Settings\SettingsInterface');
+        
+        $view->with('user', Auth::user())
+             ->with('app_name', Config::get('cms::cms.name'))
+             ->with('urlSegment', Config::get('cms::cms.access_url')) 
+             ->with('menu_items', Config::get('cms::cms.menu_items'))
+             ->with('success', Session::get('success', new MessageBag));
+        
 
         // $view->with('user', Auth::user())
         //      ->with('app_name', $settings->getAppName() )

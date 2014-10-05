@@ -3,7 +3,8 @@
 use Faiz\Cms\Posts\PostsInterface;
 use Illuminate\Support\MessageBag;
 use Faiz\Cms\Controllers\ObjectBaseController;
-use View;
+use Faiz\Cms\Core\Exceptions\NoValidationRulesFoundException;
+use Input, View, Redirect;
 
 class AdminPostsController extends ObjectBaseController {
     /**

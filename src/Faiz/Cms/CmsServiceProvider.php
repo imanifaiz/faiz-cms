@@ -23,6 +23,7 @@ class CmsServiceProvider extends ServiceProvider {
 
 		include __DIR__.'/Macros/BootstrapTableMacro.php'; // Bootstrap 3 table macro 
 		include __DIR__.'/Macros/BootstrapAlertMacro.php'; // Bootstrap 3 alert macro
+		include __DIR__.'/Macros/BootstrapFormMacro.php'; // Bootstrap 3 alert macro
 	}
 
 	/**

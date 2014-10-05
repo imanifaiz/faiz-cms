@@ -1,6 +1,6 @@
 <?php namespace Faiz\Cms\Filters;
 
-use Auth, Redirect, Config;
+use Auth, Redirect, Config, View;
 
 class Admin {
 	/**
@@ -10,7 +10,10 @@ class Admin {
 	public function filter()
 	{
 		if (Auth::guest()) {
-			return Redirect::guest('users/login');
+			// return Redirect::guest('users/login');
+			// return View::make('cms::users.login');
+			return View::make('cms::users.login');
+			// return Redirect::action('Faiz\Cms\Controllers\UsersController@login');
 		}
 	}
 }

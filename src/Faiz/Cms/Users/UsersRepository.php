@@ -4,6 +4,7 @@
 use App;
 use Config;
 use Confide;
+use Hash;
 use Faiz\Cms\Users\Users;
 
 /**

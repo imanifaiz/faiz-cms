@@ -1,28 +1,23 @@
-@extends('cms::layouts.default')
+@extends('cms::layouts.interface')
 
-{{-- Web site Title --}}
 @section('title')
-{{{ $title }}} :: @parent
+	Manage Posts
 @stop
 
-{{-- Content --}}
 @section('content')
-<div class="row">
-	<div class="col-md-12">
-	 <h2>{{ $title }}</h2>   
-		<h5>Manage your posts here. </h5>
-		<div class="pull-right">
-			<a href="{{{ URL::to('admin/blogs/create') }}}" class="btn btn-small btn-primary iframe"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
+
+	<h1>Manage Posts</h1>
+	<p>Posts can be anything from blog posts, news items to event listings. Essentially they're a timestamp ordered list of content entries with images.</p>
+
+	{{-- The error / success notification message --}}
+	@include('cms::partials.notifications')
+
+	@if (!$items->isEmpty())
+		{{ HTML::table(array('id', 'post_title', 'post_date'), $items, 'posts', true, true, false) }} 
+	@else
+		<div class="alert alert-info">
+			<strong>No Items Yet:</strong> You don't have any items here just yet. Add one using the button below.
 		</div>
-	</div>
-</div>              
-<!-- /. ROW  -->
-
-<div class="row">
-	<div class="col-md-12">
-		{{ HTML::table(array('id', 'post_title', 'post_date'), $items, 'posts', true, true, false) }}
-	</div>
-</div>
-<!-- /. ROW  -->
+	@endif
+	<a href="{{ $new_url }}" class="btn btn-primary pull-right">New Item</a>
 @stop
-

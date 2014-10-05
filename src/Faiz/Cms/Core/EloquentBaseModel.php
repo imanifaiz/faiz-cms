@@ -6,6 +6,8 @@ class EloquentBaseModel extends Eloquent
 {
 	protected $validationRules = [];
 
+	public $timestamps = false;
+
 	protected $validator;
 
 	/**
@@ -60,7 +62,7 @@ class EloquentBaseModel extends Eloquent
 		foreach ($rules as $key => $rule) {
 			if (false !== strpos($rule, "<id>")) {
 				if ($this->exists) {
-					$rule = str_replace("<di>", $this->getAttribute($this->primaryKey), $rule);
+					$rule = str_replace("<id>", $this->getAttribute($this->primaryKey), $rule);
 				} else {
 					$rule = str_replace("<id>", "", $rule);
 				}
@@ -82,7 +84,7 @@ class EloquentBaseModel extends Eloquent
 			$this->saveTags();
 		}
 
-		if ($this->uploadable()) {
+		if ($this->isUploadable()) {
 			$this->deleteImagery(Input::get('deleteImage'));
 		}
 

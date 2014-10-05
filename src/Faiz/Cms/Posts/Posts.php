@@ -26,9 +26,9 @@ class Posts extends EloquentBaseModel
 	 * The validation rules
 	 * @var array
 	 */
-	protected $validateRules = [
+	protected $validationRules = [
 		'post_title'	=> 'required',
-		'post_slug'		=> 'required|unique:posts,id<id>',
+		'post_slug'		=> 'required|unique:posts,id,<id>',
 		'post_content'	=> 'required'
 	];
 
@@ -42,7 +42,7 @@ class Posts extends EloquentBaseModel
 	{
 		parent::fill($attributes);
 
-		$this->slug = Str::slug($this->title, '-');
+		$this->post_slug = Str::slug($this->post_title, '-');
 	}
 
 	public function comments()

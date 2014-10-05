@@ -257,7 +257,7 @@ abstract class ObjectBaseController extends BaseController {
 		}
 
 		if (is_null($this->edit_url)) {
-			$this->edit_url = $this->object_url . '/edit';
+			$this->edit_url = $this->object_url . '/edit/';
 		}
 
 		if (is_null($this->new_url)) {
@@ -265,7 +265,7 @@ abstract class ObjectBaseController extends BaseController {
 		}
 
 		if (is_null($this->delete_url)) {
-			$this->delete_url = $this->object_url . '/delete';
+			$this->delete_url = $this->object_url . '/delete/';
 		}
 	}
 
