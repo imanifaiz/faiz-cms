@@ -3,11 +3,13 @@
 use App;
 use View;
 use Lang;
+use Mail;
 use Input;
 use Confide;
 use Config;
 use Redirect;
 use Faiz\Cms\Controllers\BaseController;
+use Illuminate\Support\MessageBag;
 
 /**
  * UsersController Class
@@ -16,11 +18,18 @@ use Faiz\Cms\Controllers\BaseController;
  */
 class UsersController extends BaseController
 {
-    // protected $whitelist = array(
-    //     'login',
-    //     'doLogin',
-    //     'logout'
-    // );
+    protected $whitelist = array(
+        'create',
+        'store',
+        'login',
+        'doLogin',
+        'confirm',
+        'forgotPassword',
+        'doForgotPassword',
+        'resetPassword',
+        'doResetPassword',
+        'logout'
+    );
     
     /**
      * Displays the form for account creation
@@ -29,8 +38,7 @@ class UsersController extends BaseController
      */
     public function create()
     {
-        // return View::make(Config::get('confide::signup_form'));
-        return View::make('cms::site.user.signup');
+        return View::make('cms::users.signup');
     }
 
     /**
@@ -57,14 +65,14 @@ class UsersController extends BaseController
                 );
             }
 
-            return Redirect::action('UsersController@login')
-                ->with('notice', Lang::get('confide::confide.alerts.account_created'));
+            return Redirect::action('Faiz\Cms\Controllers\UsersController@login')
+                ->with('success', new MessageBag(array(Lang::get('confide::confide.alerts.account_created'))));
         } else {
             $error = $user->errors()->all(':message');
 
-            return Redirect::action('UsersController@create')
+            return Redirect::action('Faiz\Cms\Controllers\UsersController@create')
                 ->withInput(Input::except('password'))
-                ->with('error', $error);
+                ->with('errors', new MessageBag(array($error)));
         }
     }
 
@@ -78,7 +86,6 @@ class UsersController extends BaseController
         if (\Confide::user()) {
             return Redirect::to('/');
         } else {
-            // return View::make(Config::get('confide::login_form'));
             return View::make('cms::users.login');
         }
     }
@@ -94,7 +101,7 @@ class UsersController extends BaseController
         $input = Input::all();
 
         if ($repo->login($input)) {
-            return Redirect::intended('/');
+            return Redirect::intended('admin');
         } else {
             if ($repo->isThrottled($input)) {
                 $err_msg = Lang::get('confide::confide.alerts.too_many_attempts');
@@ -106,7 +113,7 @@ class UsersController extends BaseController
 
             return Redirect::action('Faiz\Cms\Controllers\UsersController@login')
                 ->withInput(Input::except('password'))
-                ->with('error', $err_msg);
+                ->with('errors', new MessageBag(array($err_msg)));
         }
     }
 
@@ -126,7 +133,7 @@ class UsersController extends BaseController
         } else {
             $error_msg = Lang::get('confide::confide.alerts.wrong_confirmation');
             return Redirect::action('UsersController@login')
-                ->with('error', $error_msg);
+                ->with('errors', $error_msg);
         }
     }
 
@@ -137,8 +144,7 @@ class UsersController extends BaseController
      */
     public function forgotPassword()
     {
-        // return View::make(Config::get('confide::forgot_password_form'));
-        return View::make('cms::site.user.forgot');
+        return View::make('cms::users.forgot-password');
     }
 
     /**
@@ -150,13 +156,13 @@ class UsersController extends BaseController
     {
         if (Confide::forgotPassword(Input::get('email'))) {
             $notice_msg = Lang::get('confide::confide.alerts.password_forgot');
-            return Redirect::action('UsersController@login')
-                ->with('notice', $notice_msg);
+            return Redirect::action('Faiz\Cms\Controllers\UsersController@login')
+                ->with('success', new MessageBag(array($notice_msg)));
         } else {
             $error_msg = Lang::get('confide::confide.alerts.wrong_password_forgot');
-            return Redirect::action('UsersController@doForgotPassword')
+            return Redirect::action('Faiz\Cms\Controllers\UsersController@doForgotPassword')
                 ->withInput()
-                ->with('error', $error_msg);
+                ->with('errors', new MessageBag(array($error_msg)));
         }
     }
 
@@ -169,8 +175,7 @@ class UsersController extends BaseController
      */
     public function resetPassword($token)
     {
-        // return View::make(Config::get('confide::reset_password_form'))
-        return View::make('cms::site.user.reset')
+        return View::make('cms::users.reset-password')
                 ->with('token', $token);
     }
 
@@ -191,13 +196,13 @@ class UsersController extends BaseController
         // By passing an array with the token, password and confirmation
         if ($repo->resetPassword($input)) {
             $notice_msg = Lang::get('confide::confide.alerts.password_reset');
-            return Redirect::action('UsersController@login')
-                ->with('notice', $notice_msg);
+            return Redirect::action('Faiz\Cms\Controllers\UsersController@login')
+                ->with('notice', new MessageBag(array($notice_msg)));
         } else {
             $error_msg = Lang::get('confide::confide.alerts.wrong_password_reset');
-            return Redirect::action('UsersController@resetPassword', array('token'=>$input['token']))
+            return Redirect::action('Faiz\Cms\Controllers\UsersController@resetPassword', array('token'=>$input['token']))
                 ->withInput()
-                ->with('error', $error_msg);
+                ->with('errors', new MessageBag(array($error_msg)));
         }
     }
 
@@ -210,6 +215,6 @@ class UsersController extends BaseController
     {
         Confide::logout();
 
-        return Redirect::to('/');
+        return Redirect::to('/')->with('success', new MessageBag(array('Successfully logged out.')));
     }
 }

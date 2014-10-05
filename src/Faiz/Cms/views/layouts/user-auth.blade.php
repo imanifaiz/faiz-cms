@@ -23,33 +23,7 @@
 <body class="login-form">
 
     <div class="container">
-
-                {{ Form::open(array( 'url'=>$urlSegment.'/login' , 'method'=>'POST' , 'class'=>'form-signin' , 'role'=>'form' )) }}
-
-                    <h1 class="form-signin-heading">Please Sign In</h1>
-
-                    @include('cms::partials.notifications')
-
-                    {{ Form::text('email', Input::old('email') , array( 'placeholder'=>'Username or Email' , 'class'=>'form-control' ) ) }}
-
-                    {{ Form::password('password', array( 'placeholder'=>'Password' , 'class'=>'form-control' ) ) }}
-
-                    <div class="form-group">
-                        <label for="remember">
-                            {{ Form::hidden('remember', 0) }}
-                            {{ Form::checkbox('remember', 1, false, array('id' => 'remember')) }}
-                            Remember me
-                        </label>
-                        <small>
-                            <a href="{{ URL::to($urlSegment . '/users/forgot_password') }}">(forgot password)</a>
-                        </small>
-                    </div>
-
-                    {{ Form::submit('Sign In' , array( 'class'=>'btn btn-lg btn-primary btn-block' ) ) }}
-
-                {{ Form::close() }}
-
-                
+        @yield('content')                
     </div>
 
     @section('scripts')

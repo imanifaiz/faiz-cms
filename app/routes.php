@@ -8,6 +8,11 @@ View::composer('site.layouts.sidebar', function($view)
 	$view->with('archives', $archives);
 });
 
+View::composer('site.blog.index', function($view)
+{	
+	$view->with('success', Session::get('success', new Illuminate\Support\MessageBag));
+});
+
 Route::get('/', function()
 {
 	$posts = App::make('Faiz\Cms\Posts\PostsInterface')->getAllPaginated(15);
@@ -17,7 +22,7 @@ Route::get('/', function()
 	return View::make('site.blog.index', compact('posts', 'title'));
 });
 
-Route::get('{slug}', function($slug)
+Route::get('blog/{slug}', function($slug)
 {
 	$posts = App::make('Faiz\Cms\Posts\PostsInterface');
 

@@ -54,7 +54,7 @@
 				@endif
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#">Hi, {{ ucwords(Confide::user()->username) }}</a></li>
-					<li><a href="{{ url($urlSegment . '/logout') }}">Logout</a></li>
+					<li><a href="{{ url('users/logout') }}">Logout</a></li>
 				</ul>
 			</div><!-- EO .nav-collapse -->
 

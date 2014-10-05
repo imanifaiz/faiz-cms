@@ -45,7 +45,7 @@ class UsersRepository
         // Save if valid. Password field will be hashed before save
         $this->save($this->user);
 
-        return $user;
+        return $this->user;
     }
 
     /**
@@ -132,7 +132,7 @@ class UsersRepository
      *
      * @return  boolean Success
      */
-    public function save(User $instance)
+    public function save(Users $instance)
     {
         return $instance->save();
     }

@@ -21,27 +21,27 @@
 	<link rel="stylesheet" href="{{ URL::asset('bootstrap/css/blog.css') }}">
 
 	<style>
-	/* Sticky footer styles
-	-------------------------------------------------- */
-	html {
-	  position: relative;
-	  min-height: 100%;
-	}
-	body {
-	  /* Margin bottom by footer height */
-	  margin-bottom: 60px;
-	}
-	.footer {
-	  position: absolute;
-	  bottom: 0;
-	  width: 100%;
-	  /* Set the fixed height of the footer here */
-	  height: 60px;
-	  background-color: #f5f5f5;
-	}
-	@section('css')
-	@show
+		/* Sticky footer styles
+		-------------------------------------------------- */
+		html {
+		  position: relative;
+		  min-height: 100%;
+		}
+		body {
+		  /* Margin bottom by footer height */
+		  margin-bottom: 60px;
+		}
+		.footer {
+		  position: absolute;
+		  bottom: 0;
+		  width: 100%;
+		  /* Set the fixed height of the footer here */
+		  height: 60px;
+		  background-color: #f5f5f5;
+		}
 	</style>
+
+	@yield('css')
 
 	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
@@ -72,7 +72,8 @@
 	      </ul>
 
 	      <ul class="nav navbar-nav pull-right">
-			
+			<li><a href="{{{ URL::to('users/login') }}}">Login</a></li>
+			<li><a href="{{{ URL::to('users/create') }}}">Register</a></li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
