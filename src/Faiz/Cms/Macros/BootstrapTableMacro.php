@@ -16,8 +16,8 @@
  * @return  HTML Table Data
  */
 HTML::macro('table', 
-	function($fields = array(), $data = array(), 
-			$resource, $showEdit = true, 
+	function($fields = array(), $data = array(),
+			$headers =  array(), $resource, $showEdit = true,
 			$showDelete = true, $showView = true) {
 
 		$table = '<table class="table">';
@@ -25,8 +25,8 @@ HTML::macro('table',
 		$table .='<thead><tr>';
 
 		// Render the header for selected fields of data
-		foreach ($fields as $field) {
-			$table .= '<th>' . Str::title($field) . '</th>';
+		foreach ($headers as $header) {
+			$table .= '<th>' . Str::title($header) . '</th>';
 		}
 
 		// Render the header for action buttons
@@ -41,7 +41,12 @@ HTML::macro('table',
 
 			// Render all data
 			foreach($fields as $key) {
-				$table .= '<td>' . $d->$key . '</td>';
+				// Check for date collumn
+				if ($key === 'created_at' or $key === 'updated_at') {
+					$table .= '<td>' . date("d F Y, h:i a", strtotime($d->$key)) . '</td>';
+				} else {
+					$table .= '<td>' . $d->$key . '</td>';
+				}
 			}
 		 	
 		 	// Render action buttons
@@ -57,7 +62,7 @@ HTML::macro('table',
 				}
 
 				if ($showDelete) {
-					$table .= '<a href="' . $resource . '/delete/' . $d->id . '" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-remove"></i> Delete</a> ';
+					$table .= '<button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#confirmDelete" data-title="Confirm Delete" data-message="Are you sure you want to delete this?" data-url="' . $resource . '/delete/' . $d->id . '"><i class="glyphicon glyphicon-remove"></i> Delete</button> ';
 				}
 
 				$table .= '</td>';

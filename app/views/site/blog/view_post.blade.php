@@ -2,7 +2,7 @@
 
 {{-- Title --}}
 @Section('title')
-{{{ String::title($title) }}} ::
+{{{ String::title($title) }}} : :
 @parent
 @stop
 
@@ -26,8 +26,8 @@
 <article class="blog-post">
 	<h2 class="blog-post-title">{{ $post->post_title }}</h2>
 	<div class="blog-post-meta">
-		<span class="glyphicon glyphicon-user"></span> by <span class="muted">{{{ $post->post_author }}}</span>
-		| <span class="glyphicon glyphicon-calendar"></span>{{{ date("d F Y, h:i a", strtotime($post->post_date)) }}}
+		<span class="glyphicon glyphicon-user"></span> by <span class="muted">{{{ $post->author->username }}}</span>
+		| <span class="glyphicon glyphicon-calendar"></span>{{{ date("d F Y, h:i a", strtotime($post->created_at)) }}}
 	</div>
 	<p>{{ $post->post_content }}</p>
 </article>

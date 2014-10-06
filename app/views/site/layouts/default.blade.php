@@ -69,11 +69,20 @@
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
 	      	<li {{ (Request::is('/') ? 'class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a>
+
+	      	@foreach ($menus as $menu)
+	      		<li><a href="#">{{ $menu }}</a></li>
+	      	@endforeach
 	      </ul>
 
 	      <ul class="nav navbar-nav pull-right">
-			<li><a href="{{{ URL::to('users/login') }}}">Login</a></li>
-			<li><a href="{{{ URL::to('users/create') }}}">Register</a></li>
+	      	@if (Auth::guest())
+				<li><a href="{{{ URL::to('users/login') }}}">Login</a></li>
+				<li><a href="{{{ URL::to('users/create') }}}">Register</a></li>
+			@else
+				<li><a href="{{ URL::to('admin') }}">View Dashboard</a></li>
+				<li><a href="{{ url('users/logout') }}">Logout</a></li>
+			@endif
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
@@ -117,6 +126,13 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="{{ URL::asset('bootstrap/js/bootstrap.min.js') }}"></script>
+<script>
+	var alert = $( '.alert' );
+
+	if (alert.length) {
+		alert.delay(6000).slideUp(300, function(){ $(this).remove();})
+	}
+</script>
 @yield('js')
 </body>
 </html>

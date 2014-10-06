@@ -2,6 +2,7 @@
 
 use App;
 use View;
+use Input;
 use Redirect;
 use Faiz\Cms\Controllers\BaseController;
 use Illuminate\Support\MessageBag;
@@ -169,7 +170,7 @@ abstract class ObjectBaseController extends BaseController {
 
 		$valid = $this->validateWithInput === true ? $record->isValid(Input::all()) : $record->isValid();
 
-		if (!valid) {
+		if (!$valid) {
 			return Redirect::to($this->new_url)->with('errors', $record->getErrors())->withInput();
 		}
 

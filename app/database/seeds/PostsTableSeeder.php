@@ -32,21 +32,24 @@ Te his dolorem adversarium? Pri eu rebum viris, tation molestie id pri. Mel ei s
                 'post_title'      => 'Lorem ipsum dolor sit amet',
                 'post_slug'       => 'lorem-ipsum-dolor-sit-amet',
                 'post_content'    => $this->content,
-                'post_date' => new DateTime,
+                'created_at'      => new DateTime(),
+                'updated_at'      => new DateTime(),
             ),
             array(
                 'post_author'    => 2,
                 'post_title'      => 'Vivendo suscipiantur vim te vix',
                 'post_slug'       => 'vivendo-suscipiantur-vim-te-vix',
                 'post_content'    => $this->content,
-                'post_date' => new DateTime,
+                'created_at'      => new DateTime(),
+                'updated_at'      => new DateTime(),
             ),
             array(
                 'post_author'    => 2,
                 'post_title'      => 'In iisque similique reprimique eum',
                 'post_slug'       => 'in-iisque-similique-reprimique-eum',
                 'post_content'    => $this->content,
-                'post_date' => new DateTime,
+                'created_at'      => new DateTime(),
+                'updated_at'      => new DateTime(),
             ))
         );
     }

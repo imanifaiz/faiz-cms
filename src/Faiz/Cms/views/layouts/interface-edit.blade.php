@@ -19,7 +19,15 @@
 			</div>
 		</div>
 
-		{{ Form::submit('Save Items', array('class' => 'btn btn-large btn-primary pull-right')) }}
+		<div class="text-right">
+			<button class="btn btn-large btn-danger" data-toggle="modal" data-target="#confirmDelete" data-title="Confirm Delete" data-message="Are you sure you want to delete this?" data-url="{{ $delete_url . $item->id }}"><i class="glyphicon glyphicon-remove"></i> Delete</button>
 
+			{{ Form::submit('Save Items', array('class' => 'btn btn-large btn-success')) }}
+		</div>
 	{{ Form::close() }}
+@stop
+
+@section('scripts')
+	@parent
+	@include('cms::partials.delete-modal')
 @stop

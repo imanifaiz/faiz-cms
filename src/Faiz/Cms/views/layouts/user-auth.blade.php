@@ -29,6 +29,13 @@
     @section('scripts')
         <script src="{{ asset('bootstrap/js/jquery.js') }}"></script>
         <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+        <script>
+        var notification = $( '.notification' );
+
+        if (notification.length) {
+            notification.delay(8000).slideUp(300, function(){ $(this).remove();})
+        }
+        </script>
     @show
 </body>
 </html>

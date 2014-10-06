@@ -6,10 +6,10 @@
 
 @section('content')
 <div class="col-md-4 col-md-offset-4">
+    @include('cms::partials.notifications')
+    
     <div class="well">
         <form method="POST" action="http://laravel-1.dev/users" accept-charset="UTF-8">
-            @include('cms::partials.notifications')
-            
             <h1 class="text-center">Signup</h1>
             <input type="hidden" name="_token" value="Q8mWdv0rt5UnMzouhDmg6YICxEcmdTYjqS7yvOn2">
             <fieldset>
@@ -33,7 +33,7 @@
                 
                 
                 <div class="form-actions form-group">
-                  <button type="submit" class="btn btn-primary">Create new account</button>
+                  <button type="submit" class="btn btn-primary btn-block">Create new account</button>
                 </div>
 
             </fieldset>

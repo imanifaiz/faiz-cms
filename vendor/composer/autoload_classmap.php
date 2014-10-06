@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AlterTableCommentsDropColCommentDate' => $baseDir . '/app/database/migrations/2014_10_06_071618_alter_table_comments_drop_col_comment_date.php',
+    'AlterTablePostsDropColPostDatePostModified' => $baseDir . '/app/database/migrations/2014_10_06_071551_alter_table_posts_drop_col_post_date_post_modified.php',
     'Andrew13\\Helpers\\String' => $baseDir . '/app/library/Andrew13/Helpers/String.php',
     'Barryvdh\\LaravelIdeHelper\\Alias' => $vendorDir . '/barryvdh/laravel-ide-helper/src/Alias.php',
     'Barryvdh\\LaravelIdeHelper\\Console\\GeneratorCommand' => $vendorDir . '/barryvdh/laravel-ide-helper/src/Console/GeneratorCommand.php',
@@ -66,13 +68,15 @@ return array(
     'Faiz\\Cms\\Comments\\CommentsRepository' => $baseDir . '/src/Faiz/Cms/Comments/CommentsRepository.php',
     'Faiz\\Cms\\Composers\\Page' => $baseDir . '/src/Faiz/Cms/Composers/Page.php',
     'Faiz\\Cms\\Controllers\\BaseController' => $baseDir . '/src/Faiz/Cms/Controllers/BaseController.php',
+    'Faiz\\Cms\\Controllers\\DashboardController' => $baseDir . '/src/Faiz/Cms/Controllers/DashboardController.php',
     'Faiz\\Cms\\Controllers\\ObjectBaseController' => $baseDir . '/src/Faiz/Cms/Controllers/ObjectBaseController.php',
     'Faiz\\Cms\\Controllers\\PostsController' => $baseDir . '/src/Faiz/Cms/Controllers/PostsController.php',
     'Faiz\\Cms\\Controllers\\UsersController' => $baseDir . '/src/Faiz/Cms/Controllers/UsersController.php',
     'Faiz\\Cms\\Controllers\\admin\\AdminPostsController' => $baseDir . '/src/Faiz/Cms/Controllers/admin/AdminPostsController.php',
     'Faiz\\Cms\\Core\\EloquentBaseModel' => $baseDir . '/src/Faiz/Cms/Core/EloquentBaseModel.php',
     'Faiz\\Cms\\Core\\EloquentBaseRepository' => $baseDir . '/src/Faiz/Cms/Core/EloquentBaseRepository.php',
-    'Faiz\\Cms\\Core\\Exceptions\\EntityNotFoundException' => $baseDir . '/src/Faiz/Cms/Core/Exception/EntityNotFoundException.php',
+    'Faiz\\Cms\\Core\\Exceptions\\EntityNotFoundException' => $baseDir . '/src/Faiz/Cms/Core/Exceptions/EntityNotFoundException.php',
+    'Faiz\\Cms\\Core\\Exceptions\\NoValidationRulesFoundException' => $baseDir . '/src/Faiz/Cms/Core/Exceptions/NoValidationRulesFoundException.php',
     'Faiz\\Cms\\Filters\\Admin' => $baseDir . '/src/Faiz/Cms/Filters/Admin.php',
     'Faiz\\Cms\\Posts\\Posts' => $baseDir . '/src/Faiz/Cms/Posts/Posts.php',
     'Faiz\\Cms\\Posts\\PostsInterface' => $baseDir . '/src/Faiz/Cms/Posts/PostsInterface.php',

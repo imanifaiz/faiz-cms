@@ -20,7 +20,7 @@ class Posts extends EloquentBaseModel
 	 * These are the mass-assignable keys
 	 * @var array
 	 */
-	protected $fillable = array('post_title', 'post_slug', 'post_content');
+	protected $fillable = array('post_author', 'post_title', 'post_slug', 'post_content');
 
 	/**
 	 * The validation rules
@@ -45,8 +45,21 @@ class Posts extends EloquentBaseModel
 		$this->post_slug = Str::slug($this->post_title, '-');
 	}
 
+	/**
+	 * Get all comments for the post
+	 * @return Comments
+	 */
 	public function comments()
 	{
 		return $this->hasMany('Faiz\Cms\Comments\Comments', 'comment_post_id');
+	}
+
+	/**
+	 * Get the author for the post
+	 * @return Users
+	 */
+	public function author()
+	{
+		return $this->hasOne('Faiz\Cms\Users\Users', 'id', 'post_author');
 	}
 }

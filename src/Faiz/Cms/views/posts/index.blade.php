@@ -13,11 +13,14 @@
 	@include('cms::partials.notifications')
 
 	@if (!$items->isEmpty())
-		{{ HTML::table(array('id', 'post_title', 'post_date'), $items, 'posts', true, true, false) }} 
+		{{ HTML::table(array('id', 'post_title', 'created_at'), $items, array('ID', 'Title', 'Published Date'), 'posts', true, true, false) }} 
 	@else
 		<div class="alert alert-info">
 			<strong>No Items Yet:</strong> You don't have any items here just yet. Add one using the button below.
 		</div>
 	@endif
 	<a href="{{ $new_url }}" class="btn btn-primary pull-right">New Item</a>
+	@include('cms::partials.delete-modal')
+	
 @stop
+

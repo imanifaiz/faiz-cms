@@ -23,7 +23,7 @@ class PostsRepository extends EloquentBaseRepository implements PostsInterface
 	 */
 	public function getAllByDateAsc()
 	{
-		return $this->model->orderBy('post_date', 'asc')->get();
+		return $this->model->orderBy('created_at', 'asc')->get();
 	}
 
 	/**
@@ -32,7 +32,7 @@ class PostsRepository extends EloquentBaseRepository implements PostsInterface
 	 */
 	public function getAllByDateDesc()
 	{
-		return $this->model->orderBy('post_date', 'desc')->get();
+		return $this->model->orderBy('created_at', 'desc')->get();
 	}
 
 	/**
@@ -41,7 +41,7 @@ class PostsRepository extends EloquentBaseRepository implements PostsInterface
 	 */
 	public function getArchivesDate()
 	{
-		return $this->model->distinct()->get(array('post_date'));
+		return $this->model->distinct()->get(array('created_at'));
 	}
 
 	/**
@@ -51,17 +51,8 @@ class PostsRepository extends EloquentBaseRepository implements PostsInterface
 	 */
 	public function getByDate($date)
 	{
-		return $this->model->whereRaw("date_format(post_date, '%m-%Y') = '$date'")
-						   ->orderBy('post_date')
+		return $this->model->whereRaw("date_format(created_at, '%m-%Y') = '$date'")
+						   ->orderBy('created_at')
 						   ->paginate(10);
 	}
-
-	/**
-	 * Get all comments for the post
-	 * @return Comments
-	 */
-	public function comments()
-	{
-		return $this->hasMany('Faiz\Cms\Comments\Comments', 'comments');
-	}	
 }

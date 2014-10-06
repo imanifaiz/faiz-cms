@@ -6,7 +6,7 @@ class EloquentBaseModel extends Eloquent
 {
 	protected $validationRules = [];
 
-	public $timestamps = false;
+	// public $timestamps = false;
 
 	protected $validator;
 

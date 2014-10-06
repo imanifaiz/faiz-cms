@@ -53,6 +53,7 @@
 					</ul>
 				@endif
 				<ul class="nav navbar-nav navbar-right">
+					<li><a href="{{ URL::to('') }}">View Site</a></li>
 					<li><a href="#">Hi, {{ ucwords(Confide::user()->username) }}</a></li>
 					<li><a href="{{ url('users/logout') }}">Logout</a></li>
 				</ul>
@@ -107,6 +108,12 @@
 
 			if (richText.length) {
 				$(richText).redactor();
+			}
+
+			var notification = $( '.notification' );
+
+			if (notification.length) {
+				notification.delay(6000).slideUp(300, function(){ $(this).remove();})
 			}
 		});
 		</script>

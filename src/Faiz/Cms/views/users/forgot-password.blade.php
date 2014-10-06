@@ -6,10 +6,10 @@
 
 @section('content')
 <div class="col-md-4 col-md-offset-4">
+    @include('cms::partials.notifications')
+    
     <div class="well clearfix">
         <form method="POST" class="form" action="http://laravel-1.dev/users/forgot_password" accept-charset="UTF-8">
-            @include('cms::partials.notifications')
-            
             <h1>Enter your email</h1>
             <input type="hidden" name="_token" value="Q8mWdv0rt5UnMzouhDmg6YICxEcmdTYjqS7yvOn2">
             <div class="form-group">

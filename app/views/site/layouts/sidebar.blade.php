@@ -1,5 +1,5 @@
 <div class="sidebar-module sidebar-module-inset text-center">
-	<img data-src="holder.js/150x150/auto/sky/text:About Me" class="img-circle" alt="150x150"style="margin-bottom:40px">
+	<img data-src="holder.js/150x150/auto/#d9534f:#fff/text:About Me" class="img-circle" alt="150x150"style="margin-bottom:40px">
 	<h4>About</h4>
 	<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
 </div>
@@ -8,7 +8,7 @@
 	<h4>Archives</h4>
 		<ol class="list-unstyled">
 			@foreach ($archives as $archive)
-				<li><a href="{{ URL::to('/archives', [date('m-Y', strtotime($archive->post_date))]) }}">{{ date('F Y', strtotime($archive->post_date)) }}</a></li>
+				<li><a href="{{ URL::to('/archives', [date('m-Y', strtotime($archive->created_at))]) }}">{{ date('F Y', strtotime($archive->created_at)) }}</a></li>
 			@endforeach
 	</ol>
 </div>

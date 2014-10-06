@@ -6,6 +6,8 @@
 
 @section('content')
 <div class="col-md-4 col-md-offset-4">
+    @include('cms::partials.notifications')
+    
     <div class="well clearfix">
         <form method="POST" class="form" action="http://laravel-1.dev/users/reset_password" accept-charset="UTF-8">
             <h1>New Password</h1>
@@ -19,11 +21,8 @@
                 <div class="form-group">
                     <input class="form-control" placeholder="Confirm Password" type="password" name="password_confirmation" id="password_confirmation">
                 </div>
-
-            
-            
             <div class="form-actions form-group">
-                <button type="submit" class="btn btn-primary pull-right">Continue</button>
+                <button type="submit" class="btn btn-primary btn-block">Continue</button>
             </div>
         </form>
     </div>
