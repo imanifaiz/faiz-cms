@@ -71,7 +71,7 @@
 	      	<li {{ (Request::is('/') ? 'class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a>
 
 	      	@foreach ($menus as $menu)
-	      		<li><a href="#">{{ $menu }}</a></li>
+	      		<li {{ (Request::is("$menu->key") ? 'class="active"' : '') }}><a href="{{ $menu->key }}">{{ $menu->title }}</a></li>
 	      	@endforeach
 	      </ul>
 
@@ -90,8 +90,10 @@
 
 	<div class="main-header" id="content">
 		<div class="container">
+			@section('main-header')
 			<h1>Blogs</h1>
 			<p>Custom Blogging using Laravel 4</p>
+			@show
 		</div>
 	</div>
 

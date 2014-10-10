@@ -5,9 +5,9 @@ App::bind('Faiz\Cms\Posts\PostsInterface', function() {
 	return new Faiz\Cms\Posts\PostsRepository(new Faiz\Cms\Posts\Posts);
 });
 
-// The Comments Bindings
-App::bind('Faiz\Cms\Comments\CommentsInterface', function() {
-	return new Faiz\Cms\Comments\CommentsRepository(new Faiz\Cms\Comments\Comments);
+// The Pages Bindings
+App::bind('Faiz\Cms\Pages\PagesInterface', function() {
+	return new Faiz\Cms\Pages\PagesRepository(new Faiz\Cms\Pages\Pages);
 });
 
 // The Tags Bindings

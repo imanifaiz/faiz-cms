@@ -97,6 +97,11 @@
 		<script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
 		<script src="{{ asset('bootstrap/js/jquery.tagsinput.min.js') }}"></script>
 		<script src="{{ asset('bootstrap/js/redactor.min.js') }}"></script>
+		<!-- Plugin -->
+        <script src="{{ asset('bootstrap/js/plugins/imagemanager.js') }}"></script>
+        <script src="{{ asset('bootstrap/js/plugins/fullscreen.js') }}"></script>
+        <script src="{{ asset('bootstrap/js/plugins/undo.js') }}"></script>
+        <script src="{{ asset('bootstrap/js/plugins/fontcolor.js') }}"></script>
 		<script>
 		$(document).ready(function() {
 			var taggables = $('input[name="tags"]');
@@ -107,7 +112,16 @@
 			}
 
 			if (richText.length) {
-				$(richText).redactor();
+				$(richText).redactor({
+					imageUpload: '/redactor/imageUpload',
+					imageManagerJson: '/redactor/imagesManager',
+                	plugins: ['imagemanager', 'bufferbuttons', 'fontcolor', 'fullscreen'],
+                	buttonSource: true,
+					imageUploadErrorCallback: function(json)
+					{
+						alert(json.error);
+					}
+				});
 			}
 
 			var notification = $( '.notification' );

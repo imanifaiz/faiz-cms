@@ -36,8 +36,8 @@ return array(
 			'icon' => 'list',
 			'top' => true
 		),
-		'blocks' => array(
-			'name' => 'Blocks',
+		'pages' => array(
+			'name' => 'Pages',
 			'icon' => 'th-large',
 			'top' => true
 		),

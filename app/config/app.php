@@ -125,14 +125,13 @@ return array(
 		/* Additional Providers */
         'Zizaco\Confide\ServiceProvider', // Confide Provider
         'Zizaco\Entrust\EntrustServiceProvider', // Entrust Provider for roles
-        'Bllim\Datatables\DatatablesServiceProvider', // Datatables
 
         /* Uncomment for use in development */
        'Way\Generators\GeneratorsServiceProvider', // Generators
        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider', // IDE Helpers
 
        'Faiz\Cms\CmsServiceProvider',
-
+       'Intervention\Image\ImageServiceProvider',
 	),
 
 	/*
@@ -205,7 +204,7 @@ return array(
         'Entrust'         => 'Zizaco\Entrust\EntrustFacade', // Entrust Alias
         'String'          => 'Andrew13\Helpers\String', // String
         'Carbon'          => 'Carbon\Carbon', // Carbon
-        'Datatables'      => 'Bllim\Datatables\Datatables', // DataTables
+        'Image' 		  => 'Intervention\Image\Facades\Image', //Intervention
 
 	),
 
