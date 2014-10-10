@@ -1,4 +1,4 @@
-<?php
+<?php namespace Faiz\Cms\Controllers\Admin;
 
 use Cms\Models\Comment;
 
@@ -12,8 +12,8 @@ class AdminCommentsController extends BaseController {
 
 	/**
 	 * Create new instance.
-	 * 	
-	 * @param Comment $comment 
+	 *
+	 * @param Comment $comment
 	 */
 	public function __construct(Comment $comment)
 	{
@@ -36,8 +36,8 @@ class AdminCommentsController extends BaseController {
 
 	/**
 	 * Show form for comment editing
-	 * 
-	 * @param  int $comment 
+	 *
+	 * @param  int $comment
 	 * @return Illuminate\View\View
 	 */
 	public function getEdit($comment)
@@ -49,9 +49,9 @@ class AdminCommentsController extends BaseController {
 
 	/**
 	 * Update comments
-	 * 
-	 * @param  int $comment 
-	 * @return Illuminate\VIew\View          
+	 *
+	 * @param  int $comment
+	 * @return Illuminate\VIew\View
 	 */
 	public function postEdit($comment)
 	{
@@ -90,7 +90,7 @@ class AdminCommentsController extends BaseController {
 
 	/**
 	 * Delete comment.
-	 * @param  int $comment 
+	 * @param  int $comment
 	 * @return Illuminate\View\View
 	 */
 	public function getDelete($comment)
@@ -102,8 +102,8 @@ class AdminCommentsController extends BaseController {
 
 	/**
 	 * Delete comment
-	 * @param  Objed $comment 
-	 * @return Illuminate\View\View          
+	 * @param  Objed $comment
+	 * @return Illuminate\View\View
 	 */
 	public function postDelete($comment)
 	{
@@ -119,7 +119,7 @@ class AdminCommentsController extends BaseController {
 		if ($validator->passes()) {
 			// Grab the id before delete
 			$id = $comment->id;
-			
+
 			// Delete comment
 			$comment->delete();
 

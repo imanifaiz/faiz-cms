@@ -19,11 +19,30 @@ class CmsServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('faiz/cms', null, __DIR__);
-		include __DIR__.'/routes.php'; // Do some routing here specific to this package
+		$this->bindRepositories();
 
-		include __DIR__.'/Macros/BootstrapTableMacro.php'; // Bootstrap 3 table macro 
-		include __DIR__.'/Macros/BootstrapAlertMacro.php'; // Bootstrap 3 alert macro
-		include __DIR__.'/Macros/BootstrapFormMacro.php'; // Bootstrap 3 alert macro
+		require_once __DIR__.'/routes.php'; // Do some routing here specific to this package
+
+		require_once __DIR__.'/Macros/BootstrapTableMacro.php'; // Bootstrap 3 table macro
+		require_once __DIR__.'/Macros/BootstrapAlertMacro.php'; // Bootstrap 3 alert macro
+		require_once __DIR__.'/Macros/BootstrapFormMacro.php'; // Bootstrap 3 alert macro
+	}
+
+	/**
+	 * Bind all repositories
+	 * @return void
+	 */
+	public function bindRepositories()
+	{
+		// The Posts Bindings
+		App::bind('\Faiz\Cms\Posts\PostsInterface', function() {
+			return new \Faiz\Cms\Posts\PostsRepository(new \Faiz\Cms\Posts\Posts);
+		});
+
+		// The Pages Bindings
+		App::bind('\Faiz\Cms\Pages\PagesInterface', function() {
+			return new \Faiz\Cms\Pages\PagesRepository(new \Faiz\Cms\Pages\Pages);
+		});
 	}
 
 	/**

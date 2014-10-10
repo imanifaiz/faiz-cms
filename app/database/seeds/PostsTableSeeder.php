@@ -28,7 +28,7 @@ Te his dolorem adversarium? Pri eu rebum viris, tation molestie id pri. Mel ei s
 
         DB::table('posts')->insert( array(
             array(
-                'post_author'    => 1,
+                'post_author'    => 7,
                 'post_title'      => 'Lorem ipsum dolor sit amet',
                 'post_slug'       => 'lorem-ipsum-dolor-sit-amet',
                 'post_content'    => $this->content,
@@ -36,7 +36,7 @@ Te his dolorem adversarium? Pri eu rebum viris, tation molestie id pri. Mel ei s
                 'updated_at'      => new DateTime(),
             ),
             array(
-                'post_author'    => 2,
+                'post_author'    => 8,
                 'post_title'      => 'Vivendo suscipiantur vim te vix',
                 'post_slug'       => 'vivendo-suscipiantur-vim-te-vix',
                 'post_content'    => $this->content,
@@ -44,7 +44,7 @@ Te his dolorem adversarium? Pri eu rebum viris, tation molestie id pri. Mel ei s
                 'updated_at'      => new DateTime(),
             ),
             array(
-                'post_author'    => 2,
+                'post_author'    => 7,
                 'post_title'      => 'In iisque similique reprimique eum',
                 'post_slug'       => 'in-iisque-similique-reprimique-eum',
                 'post_content'    => $this->content,

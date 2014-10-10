@@ -1,4 +1,4 @@
-<?php
+<?php namespace Faiz\Cms\Controllers\Admin;
 
 class AdminDashboardController extends BaseController {
 	/**

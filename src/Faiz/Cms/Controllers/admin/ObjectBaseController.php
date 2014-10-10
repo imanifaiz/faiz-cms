@@ -1,4 +1,4 @@
-<?php namespace Faiz\Cms\Controllers;
+<?php namespace Faiz\Cms\Controllers\Admin;
 
 use App;
 use View;
@@ -95,7 +95,7 @@ abstract class ObjectBaseController extends BaseController {
 
 	/**
 	 * Index page
-	 * @return View 
+	 * @return View
 	 */
 	public function getIndex()
 	{
@@ -119,7 +119,7 @@ abstract class ObjectBaseController extends BaseController {
 	/**
 	 * Edit record
 	 * @param  Integer $id The record ID
-	 * @return View    
+	 * @return View
 	 */
 	public function getEdit($id)
 	{
@@ -141,7 +141,7 @@ abstract class ObjectBaseController extends BaseController {
 	/**
 	 * Delete object based on ID passed in
 	 * @param  Integer $id The record ID
-	 * @return Redirect     
+	 * @return Redirect
 	 */
 	public function getDelete($id)
 	{
@@ -162,7 +162,7 @@ abstract class ObjectBaseController extends BaseController {
 	/**
 	 * The new object method, very generic, just allow
 	 * mass assignable stuff to be filled and saved
-	 * @return Redirect 
+	 * @return Redirect
 	 */
 	public function postNew()
 	{
@@ -184,7 +184,7 @@ abstract class ObjectBaseController extends BaseController {
 	/**
 	 * Handle posted data
 	 * @param  Integer $id The ID of the object
-	 * @return Redirect     
+	 * @return Redirect
 	 */
 	public function postEdit($id)
 	{
@@ -208,10 +208,10 @@ abstract class ObjectBaseController extends BaseController {
 	/**
 	 * Upload image for this record
 	 * @param  Integer $id The ID of the object
-	 * @return Response 
+	 * @return Response
 	 */
 	public function postUpload($id)
-	{	
+	{
 		// this should only be accessible via AJAX
 		if (!Request::ajax() or !$this->model->getById($id)) {
 			Response::json('error', 404);
@@ -232,7 +232,7 @@ abstract class ObjectBaseController extends BaseController {
 
 	/**
 	 * Set the order of the image
-	 * @return Response 
+	 * @return Response
 	 */
 	public function postOrderImages()
 	{
@@ -271,7 +271,7 @@ abstract class ObjectBaseController extends BaseController {
 	}
 
 	/**
-	 * Set the view to have variables detailing some of the key URL's 
+	 * Set the view to have variables detailing some of the key URL's
 	 * used inthe views. Trying to keep the views generic
 	 * @return void
 	 */
@@ -298,7 +298,7 @@ abstract class ObjectBaseController extends BaseController {
 	/**
 	 * Set the class properties for if this object should allow upload or tags
 	 * Uses reflection to check the model to see if it uses a taggable / uploadable trait
-	 * @return  void 
+	 * @return  void
 	 */
 	private function setTraitableProperties()
 	{

@@ -47,7 +47,7 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 */
 
 App::error(function(Exception $exception, $code)
-{	
+{
 	$pathInfo = Request::getPathInfo();
 
 	$message = $exception->getMessage() ? : 'Exception';
@@ -99,6 +99,3 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
-
-// bindings
-require app_path().'/bindings.php';

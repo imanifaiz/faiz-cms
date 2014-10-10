@@ -1,8 +1,8 @@
-<?php namespace Faiz\Cms\Controllers\admin;
+<?php namespace Faiz\Cms\Controllers\Admin;
 
 use Faiz\Cms\Posts\PostsInterface;
 use Illuminate\Support\MessageBag;
-use Faiz\Cms\Controllers\ObjectBaseController;
+use Faiz\Cms\Controllers\Admin\ObjectBaseController;
 use Faiz\Cms\Core\Exceptions\NoValidationRulesFoundException;
 use Input, View, Redirect;
 
@@ -26,7 +26,7 @@ class AdminPostsController extends ObjectBaseController {
 
     /**
      * Index page
-     * @return View 
+     * @return View
      */
     public function getIndex()
     {
@@ -42,7 +42,7 @@ class AdminPostsController extends ObjectBaseController {
      * @param  integer $id The ID of the object
      * @return Redirect
      */
-    public function postEdit($id) 
+    public function postEdit($id)
     {
         $record = $this->model->requiredById($id);
 

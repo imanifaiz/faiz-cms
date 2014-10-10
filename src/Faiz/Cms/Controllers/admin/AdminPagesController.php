@@ -1,7 +1,7 @@
-<?php namespace Faiz\Cms\Controllers\admin;
+<?php namespace Faiz\Cms\Controllers\Admin;
 
 use Illuminate\Support\MessageBag;
-use Faiz\Cms\Controllers\ObjectBaseController;
+use Faiz\Cms\Controllers\Admin\ObjectBaseController;
 use Faiz\Cms\Pages\PagesInterface;
 use View;
 

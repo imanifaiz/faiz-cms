@@ -11,14 +11,12 @@
 |
 */
 
-
-// 
 $urlSegment = Config::get('cms::cms.access_url');
 
 Route::filter('adminFilter', 'Faiz\Cms\Filters\Admin');
 
-Route::controller($urlSegment . '/posts', 'Faiz\Cms\Controllers\admin\AdminPostsController');
-Route::controller($urlSegment . '/pages', 'Faiz\Cms\Controllers\admin\AdminPagesController');
+Route::controller($urlSegment . '/posts', 'Faiz\Cms\Controllers\Admin\AdminPostsController');
+Route::controller($urlSegment . '/pages', 'Faiz\Cms\Controllers\Admin\AdminPagesController');
 Route::controller($urlSegment, 'Faiz\Cms\Controllers\DashboardController');
 
 // Confide Routes
