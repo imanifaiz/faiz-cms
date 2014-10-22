@@ -28,38 +28,22 @@
 	<div class="blog-post-meta">
 		<span class="glyphicon glyphicon-user"></span> by <span class="muted">{{{ $post->author->username }}}</span>
 		| <span class="glyphicon glyphicon-calendar"></span>{{{ date("d F Y, h:i a", strtotime($post->created_at)) }}}
+		@if (Auth::user())| <span class="glyphicon glyphicon-pencil"></span><a href="admin/posts/edit/{{{ $post->id }}}" class="btn btn-link">Edit Post</a> @endif
 	</div>
 	<p>{{ $post->post_content }}</p>
 </article>
 
-<div class="well"><a id="comments"></a>
+<div id="comment" class="well"><a id="comments"></a>
 <h4>{{{ $post->comments->count() }}} Comments</h4>
 
-@if ($post->comments->count())
-@foreach ($post->comments as $comment)
-<div class="row">
-	<div class="col-md-2">
-		<img class="thumbnail" src="http://placehold.it/60x60" alt="">
-	</div>
-	<div class="col-md-10">
-		<div class="row">
-			<div class="col-md-10">
-				<span class="muted">{{{ $comment->comment_author }}}</span>
-				&bull;
-				{{{ $comment->comment_date }}}
-			</div>
-
-			<div class="col-md-10">
-				{{{ $comment->comment_content }}}
-			</div>
-		</div>
-	</div>
+@if($post->comments->count())
+<!-- Begin comment List -->
+<ul class="media-list">
+  {{ dumpComments($post->nestedComments) }}
+</ul>
+<!-- End comment List -->
+@endif
 </div>
-<hr />
-@endforeach
-@else
-<hr />
-@endif</div>
 
 
 @stop

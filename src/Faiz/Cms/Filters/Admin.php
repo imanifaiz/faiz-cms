@@ -10,10 +10,8 @@ class Admin {
 	public function filter()
 	{
 		if (Auth::guest()) {
-			// return Redirect::guest('users/login');
-			// return View::make('cms::users.login');
-			return View::make('cms::users.login');
-			// return Redirect::action('Faiz\Cms\Controllers\UsersController@login');
+			// return View::make('admin.users.login');
+			return Redirect::action('UsersController@login');
 		}
 	}
 }

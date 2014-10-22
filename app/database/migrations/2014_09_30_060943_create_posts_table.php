@@ -22,16 +22,15 @@ class CreatePostsTable extends Migration {
 			$table->longText('post_content');
 			$table->string('post_type', 20)->default('post');
 			$table->string('post_status', 20)->default('publish');
-			$table->bigInteger('post_author')->unsigned()->default(0);
-			$table->bigInteger('post_parent')->unsigned()->default(0);
-			$table->dateTime('post_date')->default('0000-00-00 00:00:00');
-			$table->dateTime('post_modified')->default('0000-00-00 00:00:00');
+			$table->bigInteger('post_author')->unsigned();
+			$table->bigInteger('post_parent')->unsigned()->nullable();
+			$table->timestamps();
 
 			// Add Index
 			$table->index(array(
 				'post_type', 
 				'post_status', 
-				'post_date'
+				'created_at'
 			), 'type_status_date');
 
 			// $table->index('post_name');
@@ -41,10 +40,13 @@ class CreatePostsTable extends Migration {
 			// Add Foreign Key
 			$table->foreign('post_author')
 				  ->references('id')->on('users')
-				  ->onDelete('cascade');
+				  ->onDelete('cascade')
+				  ->onUpdate('cascade');
 
 			$table->foreign('post_parent')
-				  ->references('id')->on('posts');
+				  ->references('id')->on('posts')
+				  ->onDelete('cascade')
+				  ->onUpdate('cascade');
 		});
 	}
 

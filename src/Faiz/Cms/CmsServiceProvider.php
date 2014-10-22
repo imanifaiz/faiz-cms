@@ -1,5 +1,5 @@
 <?php namespace Faiz\Cms;
-use App;
+use App, Log, Request, Response, View, Config;
 use Illuminate\Support\ServiceProvider;
 
 class CmsServiceProvider extends ServiceProvider {
@@ -26,6 +26,7 @@ class CmsServiceProvider extends ServiceProvider {
 		require_once __DIR__.'/Macros/BootstrapTableMacro.php'; // Bootstrap 3 table macro
 		require_once __DIR__.'/Macros/BootstrapAlertMacro.php'; // Bootstrap 3 alert macro
 		require_once __DIR__.'/Macros/BootstrapFormMacro.php'; // Bootstrap 3 alert macro
+		
 	}
 
 	/**

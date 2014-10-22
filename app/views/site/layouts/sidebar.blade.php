@@ -8,7 +8,7 @@
 	<h4>Archives</h4>
 		<ol class="list-unstyled">
 			@foreach ($archives as $archive)
-				<li><a href="{{ URL::to('/archives', [date('m-Y', strtotime($archive->created_at))]) }}">{{ date('F Y', strtotime($archive->created_at)) }}</a></li>
+				<li><a href="{{ URL::to('/archives', [$archive->archive_date]) }}">{{ $archive->archive_date }}</a></li>
 			@endforeach
 	</ol>
 </div>

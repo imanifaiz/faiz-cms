@@ -12,6 +12,6 @@ trait TaggableRepository
 		$table = $this->model->getTableName();
 
 		return $this->model->join('tags', 'tags.taggable_id', '=', $table. '.id')
-						   ->where('tag', '=', $tag)->get();
+							>where('tag', '=', $tag)->get();
 	}
 }

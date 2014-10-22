@@ -26,7 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('alifah-PC'),
+	'local' => array('alifah-PC', 'faiz-xubuntu'),
 
 ));
 

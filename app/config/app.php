@@ -132,6 +132,8 @@ return array(
 
        'Faiz\Cms\CmsServiceProvider',
        'Intervention\Image\ImageServiceProvider',
+       'McCool\LaravelAutoPresenter\LaravelAutoPresenterServiceProvider',
+       'Barryvdh\Debugbar\ServiceProvider',
 	),
 
 	/*

@@ -58,7 +58,7 @@
 }
 .redactor-toolbar,
 .redactor-dropdown {
-  z-index: 1050 !important;
+  /*z-index: 1050 !important;*/
 }
 #redactor-modal-overlay,
 #redactor-modal-box,
@@ -185,7 +185,7 @@ body .redactor-box-fullscreen {
 }
 .redactor-toolbar li a:hover {
   outline: none;
-  background-color: #1f78d8;
+  background-color: #5D4384; /*#1f78d8;*/
   color: #fff;
 }
 .redactor-toolbar li a:hover i:before {

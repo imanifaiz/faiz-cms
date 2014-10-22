@@ -71,7 +71,7 @@
 	      	<li {{ (Request::is('/') ? 'class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a>
 
 	      	@foreach ($menus as $menu)
-	      		<li {{ (Request::is("$menu->key") ? 'class="active"' : '') }}><a href="{{ $menu->key }}">{{ $menu->title }}</a></li>
+	      		<li {{ (Request::is("$menu->post_slug") ? 'class="active"' : '') }}><a href="{{ $menu->post_slug }}">{{ $menu->post_title }}</a></li>
 	      	@endforeach
 	      </ul>
 
@@ -98,9 +98,6 @@
 	</div>
 
 	<div id="main" class="container">
-		@include('cms::partials.notifications')
-		<!-- EO notifications -->
-
 		<div class="row">
 			<div class="col-md-8 blog-main">
 			@yield('content')

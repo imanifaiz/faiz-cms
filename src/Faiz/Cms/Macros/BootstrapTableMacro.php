@@ -53,16 +53,16 @@ HTML::macro('table',
 			if ($showEdit || $showDelete || $showView ) {
 				$table .= '<td class="text-right">';
 				
-				if ($showEdit) {
-					$table .= '<a href="' . $resource . '/edit/' . $d->id . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a> ';
-				}
-
 				if ($showView) {
-					$table .= '<a href="' . $resource . '/' . $d->id . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-eye-open"></i> View</a> ';
+					$table .= '<a href="' . $resource . '/' . $d->id . '" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-eye-open"></i> View</a> ';
 				}
 
+				if ($showEdit) {
+					$table .= '<a href="' . $resource . '/edit/' . $d->id . '" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a> ';
+				}
+				
 				if ($showDelete) {
-					$table .= '<button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#confirmDelete" data-title="Confirm Delete" data-message="Are you sure you want to delete this?" data-url="' . $resource . '/delete/' . $d->id . '"><i class="glyphicon glyphicon-remove"></i> Delete</button> ';
+					$table .= '<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#confirmDelete" data-title="Confirm Delete" data-message="Are you sure you want to delete this?" data-url="' . $resource . '/delete/' . $d->id . '"><i class="glyphicon glyphicon-remove"></i> Delete</button> ';
 				}
 
 				$table .= '</td>';

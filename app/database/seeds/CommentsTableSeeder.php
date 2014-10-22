@@ -13,36 +13,44 @@ class CommentsTableSeeder extends Seeder {
 
         $data = array(
                     array(
-                        'user_id'    => 1,
-                        'comment_author' => 'ali mamat',
+                          'user_id'    => 1,
+                        'comment_author' => 'faiz afzal',
                         'comment_author_email' => 'email@example.com',
-                        'comment_post_id'    => 4,
+                        'comment_post_id'    => 1,
                         'comment_content'    => $this->content1,
                         'comment_date' => new DateTime,
+                        'created_at' => new DateTime,
+                        'comment_parent' => null
                     ),
                     array(
                         'user_id'    => 2,
-                        'comment_author' => 'ali mamat',
+                        'comment_author' => 'faqiihah imani',
                         'comment_author_email' => 'email@example.com',
-                        'comment_post_id'    => 4,
+                        'comment_post_id'    => 1,
                         'comment_content'    => $this->content2,
                         'comment_date' => new DateTime,
+                        'created_at' => new DateTime,
+                        'comment_parent' => 1
                     ),
                     array(
-                        'user_id'    => 2,
-                        'comment_author' => 'ali mamat',
+                          'user_id'    => 1,
+                        'comment_author' => 'ayunee effendi',
                         'comment_author_email' => 'email@example.com',
-                        'comment_post_id'    => 5,
+                        'comment_post_id'    => 2,
                         'comment_content'    => $this->content3,
                         'comment_date' => new DateTime,
+                        'created_at' => new DateTime,
+                        'comment_parent' => null
                     ),
                     array(
-                        'user_id'    => 2,
-                        'comment_author' => 'ali mamat',
-                        'comment_author_email' => 'email@example.com',
-                        'comment_post_id'    => 6,
-                        'comment_content'    => $this->content1,
-                        'comment_date' => new DateTime,
+						'user_id'              => 2,
+						'comment_author'       => 'ali mamat',
+						'comment_author_email' => 'email@example.com',
+						'comment_post_id'      => 1,
+						'comment_content'      => $this->content1,
+						'comment_date'         => new DateTime,
+						'created_at'           => new DateTime,
+						'comment_parent' => 3
                     )
                 );
 

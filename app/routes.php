@@ -1,39 +1,5 @@
 <?php
 
-# Attach $success var to all views
-View::composer('*', function($view)
-{
-	$success = Session::get('success', Session::get('success', new Illuminate\Support\MessageBag));
-
-	$blocks = App::make('Faiz\Cms\Pages\PagesInterface')->getAll();
-
-	$menus = array();
-
-	foreach ($blocks as $block) {
-		$menus[] = $block;
-	}
-
-	$view->with('success', $success)
-		 ->with('menus', $menus);
-});
-
-# View composer for blog archive in sidebar
-View::composer('site.layouts.sidebar', function($view)
-{
-	$archives = App::make('Faiz\Cms\Posts\PostsInterface')->getArchivesDate();
-
-	$view->with('archives', $archives);
-});
-
-View::composer('site.blog.index', function($view)
-{	
-	$view->with('success', Session::get('success', new Illuminate\Support\MessageBag));
-});
-
-# Redactor image upload and images manager
-Route::post('redactor/imageUpload', 'Faiz\Cms\Controllers\MediaController@upload' );
-Route::get('redactor/imagesManager', 'Faiz\Cms\Controllers\MediaController@imagesManager' );
-
 Route::get('galleries', function()
 {
 	$images = array();
@@ -99,58 +65,47 @@ Route::post('media/delete', function()
 	}
 });
 
+/*************************
+ * Route for Admin Pages
+ *************************/
+$urlSegment = Config::get('cms.access_url');
 
-Route::get('/', function()
+Route::filter('adminFilter', 'Faiz\Cms\Filters\Admin');
+
+Route::group(array('prefix' => $urlSegment, 'before' => 'adminFilter'), function()
 {
-	$posts = App::make('Faiz\Cms\Posts\PostsInterface')->getAllPaginated(15);
-
-	$title = 'Blogs';
-		
-	return View::make('site.blog.index', compact('posts', 'title'));
+	Route::controller('/posts', 'AdminPostsController');
+	Route::controller('/pages', 'AdminPagesController');
+	Route::controller('', 'DashboardController');
+	
 });
 
-Route::get('archives/{date}', function($date)
-{
-	$posts = App::make('Faiz\Cms\Posts\PostsInterface');
+/*************************
+ * Redactor JS image upload 
+ * and images manager
+ *************************/
+Route::post('redactor/imageUpload', 'MediaController@upload' );
+Route::get('redactor/imagesManager', 'MediaController@imagesManager' );
 
-	$posts = $posts->getByDate($date);
+/*************************
+ * Route for Confide
+ *************************/
+Route::get('users/create', 'UsersController@create');
+Route::post('users', 'UsersController@store');
+Route::get('users/login', 'UsersController@login');
+Route::post('users/login', 'UsersController@doLogin');
+Route::get('users/confirm/{code}', 'UsersController@confirm');
+Route::get('users/forgot_password', 'UsersController@forgotPassword');
+Route::post('users/forgot_password', 'UsersController@doForgotPassword');
+Route::get('users/reset_password/{token}', 'UsersController@resetPassword');
+Route::post('users/reset_password', 'UsersController@doResetPassword');
+Route::get('users/logout', 'UsersController@logout');
 
-	$title = 'Blog Archives';
+/*************************
+ * Route for Frontend
+ *************************/
+Route::get('/', 'HomeController@getIndex');
+Route::get('rss', 'HomeController@getRss');
+Route::get('{slug}', 'HomeController@getPost');
+Route::get('archives/{date}', 'HomeController@getArchive');
 
-	return View::make('site.blog.archives', compact('posts', 'title'));
-});
-
-Route::get('rss', function()
-{
-	$posts = App::make('Faiz\Cms\Posts\PostsInterface')->getAll();
-
-	$data = array(
-		'posts'   => $posts,
-		'updated' => isset($posts[0]) ? $posts[0]->atom_date : date('Y-m-d H:i:s'),
-	);
-
-	return Response::view('site.atom', $data, 200, array(
-		'Content-Type' => 'application/rss+xml; charset=UTF-8',
-	));
-});
-
-Route::get('{slug}', function($slug)
-{	
-	$posts = App::make('Faiz\Cms\Posts\PostsInterface');
-
-	$post = $posts->getBySlug($slug);
-
-	if (!empty($post)) {
-		$title = $post->post_title;
-
-		return View::make('site.blog.view_post', compact('post', 'title'));
-	} else {
-		$pages = App::make('Faiz\Cms\Pages\PagesInterface');
-
-		$page = $pages->getBykey($slug);
-
-		$title = $page->title;
-
-		return View::make('site.layouts.pages', compact('page', 'title'));
-	}
-});

@@ -16,7 +16,7 @@ class CreateCommentsTable extends Migration {
 		Schema::create('comments', function($table)
 		{
 			$table->bigIncrements('comment_id')->unsigned();
-			$table->bigInteger('comment_post_id')->unsigned()->default(0);
+			$table->bigInteger('comment_post_id')->unsigned();
 			$table->text('comment_author');
 			$table->string('comment_author_email', 100);
 			$table->string('comment_author_url', 200);
@@ -25,8 +25,9 @@ class CreateCommentsTable extends Migration {
 			$table->text('comment_content');
 			$table->string('comment_approved', 20);
 			$table->string('comment_type', 20);
-			$table->bigInteger('comment_parent')->unsigned();
-			$table->bigInteger('user_id')->unsigned()->default(0);
+			$table->bigInteger('comment_parent')->unsigned()->nullable();
+			$table->bigInteger('user_id')->unsigned();
+			$table->timestamps();
 
 			// Add Index 
 			$table->index('comment_post_id');
@@ -42,15 +43,18 @@ class CreateCommentsTable extends Migration {
 	      	// Add Foreign Key
 	      	$table->foreign('comment_post_id')
 	      		  ->references('id')->on('posts')
-	      		  ->onDelete('cascade');
+	      		  ->onDelete('cascade')
+	      		  ->onUpdate('cascade');
 
 	      	$table->foreign('comment_parent')
 	      		  ->references('comment_id')->on('comments')
-	      		  ->onDelete('cascade');
+	      		  ->onDelete('cascade')
+	      		  ->onUpdate('cascade');
 
 	      	$table->foreign('user_id')
 	      		  ->references('id')->on('users')
-	      		  ->onDelete('cascade');
+	      		  ->onDelete('cascade')
+	      		  ->onUpdate('cascade');
 		});
 	}
 

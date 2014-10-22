@@ -2,57 +2,59 @@
 
 use Faiz\Cms\Posts\Posts;
 use Faiz\Cms\Core\EloquentBaseRepository;
-use Faiz\Cms\Abstracts\Traits\TaggableRepository;
 
-class PostsRepository extends EloquentBaseRepository implements PostsInterface
-{
-	// use TaggableRepository;
-
+class PostsRepository extends EloquentBaseRepository implements PostsInterface {
 	/**
-	 * Create new instance of PostsRepository
-	 * @param Post $post 
+	 * Initializer
+	 * @param Posts $Posts
 	 */
-	public function __construct(Posts $post)
+	public function __construct(Posts $posts)
 	{
-		$this->model = $post;
+		$this->model = $posts;
 	}
 
 	/**
-	 * Get all post by date published ascending
+	 * Get all posts by date published ascending
 	 * @return Posts 
 	 */
-	public function getAllByDateAsc()
+	public function getAllByDateAsc() 
 	{
-		return $this->model->orderBy('created_at', 'asc')->get();
+		return $this->model->orderBy('created_at', 'asc');
 	}
 
 	/**
-	 * Get all post by date published descending
+	 * Get all posts by date published descending
 	 * @return Posts 
 	 */
-	public function getAllByDateDesc()
+	public function getAllByDateDesc() 
 	{
-		return $this->model->orderBy('created_at', 'desc')->get();
+		return $this->model->orderBy('created_at', 'desc');
 	}
 
 	/**
-	 * Get archives date from table
-	 * @return  Posts
+	 * Get page by key
+	 * @param  string $key 
+	 * @return Posts      
 	 */
-	public function getArchivesDate()
+	public function getByKey($key)
 	{
-		return $this->model->distinct()->get(array('created_at'));
+		return $this->model->where('key', '=', $key)->first();
 	}
 
-	/**
-	 * Get all post base on archives date
-	 * @param  date $date 
-	 * @return Posts       
-	 */
-	public function getByDate($date)
+	public function getArchives()
 	{
-		return $this->model->whereRaw("date_format(created_at, '%m-%Y') = '$date'")
-						   ->orderBy('created_at')
-						   ->paginate(10);
+		return $this->model->distinct()->get([
+			\DB::raw("date_format(created_at, '%m-%Y') as archive_date")
+		]);
+	}
+
+	public function getAllPosts()
+	{
+		return $this->model->where('post_type', 'post')->get();
+	}
+
+	public function getAllPages()
+	{
+		return $this->model->where('post_type', 'page')->get();
 	}
 }

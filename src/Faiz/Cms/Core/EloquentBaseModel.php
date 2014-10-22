@@ -132,7 +132,7 @@ class EloquentBaseModel extends Eloquent
 	 * Get the table name
 	 * @return string
 	 */
-	public function getTableNmae()
+	public function getTableName()
 	{
 		return $this->table;
 	}
