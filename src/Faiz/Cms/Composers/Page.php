@@ -13,6 +13,8 @@ class Page {
     {
 		$blocks = App::make('Faiz\Cms\Posts\PostsInterface')->getAllPages();
 
+		$menus = array();
+
 		foreach ($blocks as $block) {
 			$menus[] = $block;
 		}

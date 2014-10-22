@@ -17,8 +17,7 @@
 		| <span class="glyphicon glyphicon-comment"></span><a href="{{{ $post->post_slug }}}#comments">{{ $post->comments()->count() }} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
 		@if (Auth::user())| <span class="glyphicon glyphicon-pencil"></span><a href="admin/posts/edit/{{{ $post->id }}}" class="btn btn-link">Edit Post</a> @endif
 	</div>
-	<p>{{-- String::tidy(Str::words($post->post_content, 100)) --}}
-	{{ $post->post_excerpt }}<a href="{{{ $post->post_slug }}}" class="btn btn-link">Read more</a></p>
+	<p>{{ $post->post_excerpt }}<a href="{{{ $post->post_slug }}}" class="btn btn-link">Read more</a></p>
 </article>
 
 <hr>

@@ -9,6 +9,8 @@ class EloquentBaseRepository
 {
 	protected $model;
 
+	protected $count;
+
 	/**
 	 * Create new instance of EloquentBaseRepository
 	 * @param EloquentBaseModel $model
@@ -16,6 +18,8 @@ class EloquentBaseRepository
 	public function __construct(EloquentBaseModel $model)
 	{
 		$this->model = $model;
+		
+		// $this->count = Config::get('cms.pagination_count');
 	}
 
 	/**

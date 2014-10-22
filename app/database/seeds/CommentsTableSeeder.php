@@ -51,6 +51,46 @@ class CommentsTableSeeder extends Seeder {
 						'comment_date'         => new DateTime,
 						'created_at'           => new DateTime,
 						'comment_parent' => 3
+                    ),
+                    array(
+                          'user_id'    => 1,
+                        'comment_author' => 'John Doe',
+                        'comment_author_email' => 'email@example.com',
+                        'comment_post_id'    => 2,
+                        'comment_content'    => $this->content1,
+                        'comment_date' => new DateTime,
+                        'created_at' => new DateTime,
+                        'comment_parent' => null
+                    ),
+                    array(
+                        'user_id'    => 2,
+                        'comment_author' => 'farhan',
+                        'comment_author_email' => 'email@example.com',
+                        'comment_post_id'    => 2,
+                        'comment_content'    => $this->content2,
+                        'comment_date' => new DateTime,
+                        'created_at' => new DateTime,
+                        'comment_parent' => 5
+                    ),
+                    array(
+                          'user_id'    => 1,
+                        'comment_author' => 'yun',
+                        'comment_author_email' => 'email@example.com',
+                        'comment_post_id'    => 3,
+                        'comment_content'    => $this->content3,
+                        'comment_date' => new DateTime,
+                        'created_at' => new DateTime,
+                        'comment_parent' => null
+                    ),
+                    array(
+						'user_id'              => 2,
+						'comment_author'       => 'mamat',
+						'comment_author_email' => 'email@example.com',
+						'comment_post_id'      => 4,
+						'comment_content'      => $this->content1,
+						'comment_date'         => new DateTime,
+						'created_at'           => new DateTime,
+						'comment_parent' => null
                     )
                 );
 

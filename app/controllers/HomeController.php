@@ -21,7 +21,8 @@ class HomeController extends BaseController {
 
 	public function getIndex()
 	{
-		$posts = $this->posts->getAllPaginated(15);
+		// $posts = $this->posts->getAllPaginated(15);
+		$posts = $this->posts->getAllPostsPaginate(15);
 
 		$title = 'Blogs';
 			
