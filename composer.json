@@ -10,7 +10,8 @@
 		"laravelbook/ardent": "dev-master",
 		"intervention/image": "2.*",
 		"barryvdh/laravel-debugbar": "1.*",
-        "mccool/laravel-auto-presenter": "~2.2"
+        "mccool/laravel-auto-presenter": "~2.2",
+        "pqb/filemanager-laravel": "1.*"
 	},
 	"require-dev": {
         "way/generators": "~2.6",
@@ -21,18 +22,14 @@
         "doctrine/dbal": "~2.3"
     },
 	"autoload": {
-		"psr-0": {
-			"Faiz\\Cms": "src/"
-		},
 		"classmap": [
-			"app/commands",
 			"app/library",
-			"app/models",
-			"app/controllers",
 			"app/database/migrations",
-			"app/database/seeds",
-			"app/tests/TestCase.php"
-		]
+			"app/database/seeds"
+		],
+		"psr-4": {
+			"Faiz\\Cms\\": "src"
+		}
 	},
 	"scripts": {
 		"post-install-cmd": [

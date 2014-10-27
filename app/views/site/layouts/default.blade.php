@@ -79,12 +79,12 @@
 	      </ul>
 
 	      <ul class="nav navbar-nav pull-right">
-	      	@if (Auth::guest())
-				<li><a href="{{{ URL::to('users/login') }}}">Login</a></li>
-				<li><a href="{{{ URL::to('users/create') }}}">Register</a></li>
+	      	@if (!Confide::user())
+				<li><a href="{{{ URL::to('user/login') }}}">Login</a></li>
+				<li><a href="{{{ URL::to('user/create') }}}">Register</a></li>
 			@else
 				<li><a href="{{ URL::to('admin') }}">View Dashboard</a></li>
-				<li><a href="{{ url('users/logout') }}">Logout</a></li>
+				<li><a href="{{ url('user/logout') }}">Logout</a></li>
 			@endif
 	      </ul>
 	    </div><!-- /.navbar-collapse -->

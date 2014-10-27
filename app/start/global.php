@@ -13,11 +13,6 @@
 
 ClassLoader::addDirectories(array(
 
-	app_path().'/commands',
-	app_path().'/controllers',
-	app_path().'/models',
-	app_path().'/database/seeds',
-
 ));
 
 /*
@@ -98,5 +93,5 @@ App::down(function()
 |
 */
 
-require app_path().'/filters.php';
-require app_path().'/helpers.php';
+require_once __DIR__ . '/../../src/routes.php';
+require_once __DIR__ . '/../../src/helpers.php';

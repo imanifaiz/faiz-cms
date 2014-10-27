@@ -9,7 +9,7 @@
   </a>
 
   <div class="media-body">
-    <h4 class="media-heading">{{ $comment->comment_id }} - {{ $comment->comment_author }}</h4>
+    <h4 class="media-heading">{{ $comment->comment_author }}</h4>
     <p style='text-align:justify;'>{{ $comment->comment_content }}</p>
     <p><a class='comment_reply_to' href='#writecomment' data-replyto='{{ $comment->comment_id }}'>Reply</a></p>
     @if($comment->replies->count())

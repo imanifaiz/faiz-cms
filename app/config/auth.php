@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'model' => 'Faiz\Cms\Users\Users',
+	'model' => 'Faiz\Cms\User\User',
 
 	/*
 	|--------------------------------------------------------------------------

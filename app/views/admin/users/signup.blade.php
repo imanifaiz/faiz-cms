@@ -9,7 +9,7 @@
     @include('admin.partials.notifications')
     
     <div class="well">
-        <form method="POST" action="http://laravel-1.dev/users" accept-charset="UTF-8">
+        <form method="POST" action="http://laravel-1.dev/user" accept-charset="UTF-8">
             <h1 class="text-center">Signup</h1>
             <input type="hidden" name="_token" value="Q8mWdv0rt5UnMzouhDmg6YICxEcmdTYjqS7yvOn2">
             <fieldset>

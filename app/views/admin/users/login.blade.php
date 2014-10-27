@@ -6,7 +6,7 @@
 
 @section('content')
 
-	{{ Form::open(array( 'url'=>'/users/login' , 'method'=>'POST' , 'class'=>'form-signin' , 'role'=>'form' )) }}
+	{{ Form::open(array( 'url'=>'/user/login' , 'method'=>'POST' , 'class'=>'form-signin' , 'role'=>'form' )) }}
 
 	    <h1 class="form-signin-heading">Please Sign In</h1>
 
@@ -23,7 +23,7 @@
 	            Remember me
 	        </label>
 	        <small>
-	            <a href="{{ URL::to('/users/forgot_password') }}">(forgot password)</a>
+	            <a href="{{ URL::to('/user/forgot_password') }}">(forgot password)</a>
 	        </small>
 	    </div>
 

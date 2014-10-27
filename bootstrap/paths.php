@@ -54,4 +54,17 @@ return array(
 
 	'storage' => __DIR__.'/../app/storage',
 
+	/*
+	|--------------------------------------------------------------------------
+	| Source Path
+	|--------------------------------------------------------------------------
+	|
+	| This is the path to the PAMH source folder. Sorry, but I couldn't bring
+	| myself to make this comment perfectly span three lines like Taylor
+	| does, so this will have to do. Oh wait, look! I managed it.
+	|
+	*/
+
+	// 'src' => __DIR__.'/../src',
+
 );

@@ -9,7 +9,7 @@
     @include('admin.partials.notifications')
     
     <div class="well clearfix">
-        <form method="POST" class="form" action="http://laravel-1.dev/users/forgot_password" accept-charset="UTF-8">
+        <form method="POST" class="form" action="http://laravel-1.dev/user/forgot_password" accept-charset="UTF-8">
             <h1>Enter your email</h1>
             <input type="hidden" name="_token" value="Q8mWdv0rt5UnMzouhDmg6YICxEcmdTYjqS7yvOn2">
             <div class="form-group">

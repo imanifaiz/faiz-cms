@@ -130,10 +130,12 @@ return array(
        'Way\Generators\GeneratorsServiceProvider', // Generators
        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider', // IDE Helpers
 
-       'Faiz\Cms\CmsServiceProvider',
+       'Faiz\Cms\ServiceProvider\CmsServiceProvider',
        'Intervention\Image\ImageServiceProvider',
        'McCool\LaravelAutoPresenter\LaravelAutoPresenterServiceProvider',
        'Barryvdh\Debugbar\ServiceProvider',
+
+       'Pqb\FilemanagerLaravel\FilemanagerLaravelServiceProvider',
 	),
 
 	/*
@@ -207,6 +209,7 @@ return array(
         'String'          => 'Andrew13\Helpers\String', // String
         'Carbon'          => 'Carbon\Carbon', // Carbon
         'Image' 		  => 'Intervention\Image\Facades\Image', //Intervention
+        'FilemanagerLaravel'=> 'Pqb\FilemanagerLaravel\Facades\FilemanagerLaravel',
 
 	),
 

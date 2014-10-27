@@ -9,6 +9,7 @@ return array(
     'Zizaco\\Confide\\' => array($vendorDir . '/zizaco/confide/src/Confide'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'Intervention\\Image\\' => array($vendorDir . '/intervention/image/src/Intervention/Image'),
+    'Faiz\\Cms\\' => array($baseDir . '/src'),
     'Barryvdh\\LaravelIdeHelper\\' => array($vendorDir . '/barryvdh/laravel-ide-helper/src'),
     'Barryvdh\\Debugbar\\' => array($vendorDir . '/barryvdh/laravel-debugbar/src'),
 );
